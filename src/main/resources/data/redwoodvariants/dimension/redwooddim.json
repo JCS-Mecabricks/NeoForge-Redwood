@@ -1,0 +1,60 @@
+{
+  "type": "redwoodvariants:redwooddim_type",
+  "generator": {
+    "type": "minecraft:noise",
+    "biome_source": {
+      "biomes": [
+        {
+          "biome": "minecraft:old_growth_spruce_taiga",
+          "parameters": {
+            "temperature": -0.2,
+            "humidity": 1,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "redwoodvariants:redwood_biome",
+          "parameters": {
+            "temperature": 0.6,
+            "humidity": 0.2,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "minecraft:taiga",
+          "parameters": {
+            "continentalness": 0,
+            "depth": 0,
+            "erosion": 0,
+            "humidity": 0,
+            "offset": 0.175,
+            "temperature": 0.63,
+            "weirdness": 0
+          }
+        },
+        {
+          "biome": "minecraft:old_growth_pine_taiga",
+          "parameters": {
+            "temperature": 0.1,
+            "humidity": -1,
+            "continentalness": -0.1,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        }
+      ],
+      "type": "minecraft:multi_noise"
+    },
+    "settings": "minecraft:overworld"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "minecraft:stick",
+    "E": "redwoodvariants:redwood_planks"
+  },
+  "pattern": [
+    "AEA",
+    "AEA"
+  ],
+  "result": {
+    "count": 3,
+    "id": "redwoodvariants:redwood_fence"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "redwoodvariants:redwood_boat",
+    "minecraft:chest"
+  ],
+  "result": {
+    "count": 1,
+    "id": "redwoodvariants:redwood_chest_boat"
+  }
+}

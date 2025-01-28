@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_post",
+  "textures": {
+    "texture": "redwoodvariants:block/redwood_planks"
+  }
+}

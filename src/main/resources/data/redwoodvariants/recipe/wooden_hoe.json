@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "minecraft:stick",
+    "E": "redwoodvariants:redwood_planks"
+  },
+  "pattern": [
+    " EE",
+    " A ",
+    " A "
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:wooden_hoe"
+  }
+}

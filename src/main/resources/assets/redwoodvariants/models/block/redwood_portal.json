@@ -1,0 +1,13 @@
+{
+  "render_type": "translucent",
+  "parent": "block/cube",
+  "textures": {
+    "down": "redwoodvariants:block/redwood_planks",
+    "up": "redwoodvariants:block/redwood_portal",
+    "north": "redwoodvariants:block/redwood_planks",
+    "south": "redwoodvariants:block/redwood_planks",
+    "east": "redwoodvariants:block/redwood_planks",
+    "west": "redwoodvariants:block/redwood_planks",
+    "particle": "redwoodvariants:block/redwood_planks"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "minecraft:stick",
+    "E": "redwoodvariants:redwood_planks"
+  },
+  "pattern": [
+    " E ",
+    " A ",
+    " A "
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:wooden_shovel"
+  }
+}

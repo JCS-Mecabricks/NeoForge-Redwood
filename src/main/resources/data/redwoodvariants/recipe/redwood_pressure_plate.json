@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": "redwoodvariants:redwood_planks"
+  },
+  "pattern": [
+    "EE"
+  ],
+  "result": {
+    "count": 1,
+    "id": "redwoodvariants:redwood_pressure_plate"
+  }
+}

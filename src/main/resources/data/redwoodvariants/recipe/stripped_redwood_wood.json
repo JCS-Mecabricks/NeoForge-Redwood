@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": "redwoodvariants:stripped_redwood_log"
+  },
+  "pattern": [
+    "EE",
+    "EE"
+  ],
+  "result": {
+    "count": 3,
+    "id": "redwoodvariants:stripped_redwood_wood"
+  }
+}

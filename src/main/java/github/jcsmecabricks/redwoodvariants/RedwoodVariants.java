@@ -7,8 +7,6 @@ import github.jcsmecabricks.redwoodvariants.item.ModItems;
 import github.jcsmecabricks.redwoodvariants.util.ModWoodTypes;
 import github.jcsmecabricks.redwoodvariants.worldgen.biome.ModTerrablender;
 import github.jcsmecabricks.redwoodvariants.worldgen.biome.surface.ModSurfaceRules;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
 import org.slf4j.Logger;
 
