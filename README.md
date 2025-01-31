@@ -2,7 +2,7 @@
 
 ## Redwood
   
-**RedWood is a Fabric Mod that adds more wood types and trees to your game**
+**RedWood is a Mod that adds more wood types and trees to your game**
 
 Here is an image of the redwood wood types and trees
 
@@ -14,7 +14,14 @@ Here is an image of the redwood wood types and trees
 
 ![Screenshot 2024-11-18 160851](https://github.com/user-attachments/assets/d37321b6-7abf-4b1a-b98d-f99849916cef)
 
-There now is a Redwood Biome and Dimension. Check them out at the gallery.
+There now is a Redwood Biome and Dimension.
+In Neoforge you need to craft a Redwood Portal block and stand in it to go to the Dimension.
+It needs to be mined with an iron pick
+
+![The Redwood Portal](https://cdn.modrinth.com/data/cached_images/cbc25a623fc51f9c65e965c8440a42c0c742e160.png)
+
+![Redwood Portal Recipe](https://cdn.modrinth.com/data/cached_images/99c71fbc82c3b3fb1742ef370d07d5f926f89a18.png)
+
 
 This mod does not depend on TerraformersMC.
 
