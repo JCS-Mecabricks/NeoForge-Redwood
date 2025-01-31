@@ -16,10 +16,8 @@ Here is an image of the redwood wood types and trees
 
 There now is a Redwood Biome and Dimension. Check them out at the gallery.
 
-This mod depends on TerraformersMC and obviously fabric api,
-make sure to dowload the TerraformersMC version that matches my mod.
+This mod does not depend on TerraformersMC.
 
 Lastly, I will mostly update my mods in modrinth: https://modrinth.com/user/JCS-Mecabricks
-Link for menu: https:[//github.com/TerraformersMC/Terraform/releases](https://maven.terraformersmc.com/releases/com/terraformersmc/terraform-api/terraform-wood-api-v1)
 
 ## Enjoy!
