@@ -1,0 +1,17 @@
+{
+  "structures": [
+    {
+      "structure": "redwoodvariants:redwood_campsite",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1642136474,
+
+    "spacing": 20,
+
+    "separation": 8,
+
+    "type": "minecraft:random_spread"
+  }
+}

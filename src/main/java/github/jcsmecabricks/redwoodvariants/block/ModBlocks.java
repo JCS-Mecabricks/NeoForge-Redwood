@@ -112,7 +112,7 @@ public class ModBlocks {
                     (RedwoodVariants.MOD_ID, "redwood_trapdoor")))));
 
     public static final DeferredBlock<Block> REDWOOD_LEAVES = registerBlock("redwood_leaves",
-            () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES)
+            () -> new TintedParticleLeavesBlock(0, BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES)
                     .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "redwood_leaves")))){
                 @Override

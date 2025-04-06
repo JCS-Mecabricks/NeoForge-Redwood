@@ -75,8 +75,9 @@
       "redwoodvariants:redwood_placed",
       "minecraft:patch_large_fern",
       "minecraft:forest_flowers",
+      "minecraft:patch_pumpkin",
       "minecraft:patch_sugar_cane",
-      "minecraft:patch_pumpkin"
+      "minecraft:patch_firefly_bush_near_water"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -103,9 +104,9 @@
       },
       {
         "type": "minecraft:fox",
-        "maxCount": 4,
+        "maxCount": 5,
         "minCount": 3,
-        "weight": 8
+        "weight": 6
       },
       {
         "type": "minecraft:sheep",

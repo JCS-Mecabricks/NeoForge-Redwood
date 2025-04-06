@@ -1,0 +1,15 @@
+{
+  "name": "redwoodvariants:redwood_campsite",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "redwoodvariants:redwood_campsite",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}
