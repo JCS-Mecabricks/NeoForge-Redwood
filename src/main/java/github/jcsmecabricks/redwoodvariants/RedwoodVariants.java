@@ -2,12 +2,20 @@ package github.jcsmecabricks.redwoodvariants;
 
 import github.jcsmecabricks.redwoodvariants.block.ModBlocks;
 import github.jcsmecabricks.redwoodvariants.block.entity.ModBlockEntities;
+import github.jcsmecabricks.redwoodvariants.entity.ModEntities;
+import github.jcsmecabricks.redwoodvariants.entity.client.GrizzlyBearRenderer;
+import github.jcsmecabricks.redwoodvariants.entity.client.ModBoatRenderer;
+import github.jcsmecabricks.redwoodvariants.entity.client.ModModelLayers;
 import github.jcsmecabricks.redwoodvariants.item.ModCreativeModeTabs;
 import github.jcsmecabricks.redwoodvariants.item.ModItems;
 import github.jcsmecabricks.redwoodvariants.util.ModWoodTypes;
 import github.jcsmecabricks.redwoodvariants.worldgen.biome.ModTerrablender;
 import github.jcsmecabricks.redwoodvariants.worldgen.biome.surface.ModSurfaceRules;
+import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.entity.BoatRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.world.entity.EntityType;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -34,6 +42,7 @@ public class RedwoodVariants
 
     public RedwoodVariants(IEventBus modEventBus, ModContainer modContainer)
     {
+        ModEntities.register(modEventBus);
         modEventBus.addListener(this::commonSetup);
         ModItems.register(modEventBus);
         ModBlockEntities.register(modEventBus);
@@ -62,6 +71,9 @@ public class RedwoodVariants
     {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            EntityRenderers.register(ModEntities.GRIZZLY_BEAR.get(), GrizzlyBearRenderer::new);
+            EntityRenderers.register(ModEntities.REDWOOD_BOAT.get(), context -> new ModBoatRenderer(context, ModModelLayers.REDWOOD_BOAT));
+            EntityRenderers.register(ModEntities.REDWOOD_CHEST_BOAT.get(), context -> new ModBoatRenderer(context, ModModelLayers.REDWOOD_CHEST_BOAT));
             Sheets.addWoodType(ModWoodTypes.REDWOOD);
         }
     }

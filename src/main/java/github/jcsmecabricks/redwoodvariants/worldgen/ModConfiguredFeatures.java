@@ -26,7 +26,7 @@ public class ModConfiguredFeatures {
                 new ForkingTrunkPlacer(5, 6, 3),
 
                 BlockStateProvider.simple(ModBlocks.REDWOOD_LEAVES.get()),
-                new BlobFoliagePlacer(ConstantInt.of(4), ConstantInt.of(1), 3),
+                new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 4),
 
                 new TwoLayersFeatureSize(1, 0, 2))
                 .build());

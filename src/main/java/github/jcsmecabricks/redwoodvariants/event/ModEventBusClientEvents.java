@@ -2,6 +2,7 @@ package github.jcsmecabricks.redwoodvariants.event;
 
 import github.jcsmecabricks.redwoodvariants.RedwoodVariants;
 import github.jcsmecabricks.redwoodvariants.block.entity.ModBlockEntities;
+import github.jcsmecabricks.redwoodvariants.entity.client.GrizzlyBearModel;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.neoforged.api.distmarker.Dist;
