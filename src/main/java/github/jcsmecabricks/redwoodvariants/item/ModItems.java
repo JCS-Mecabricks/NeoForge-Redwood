@@ -24,6 +24,7 @@ public class ModItems {
 
     public static final DeferredItem<Item> RESOURCE_REALM = ITEMS.register("resource_realm",
             () -> new ResourceRealmItem(new Item.Properties()
+                    .stacksTo(1)
                     .setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "resource_realm")))));
 
