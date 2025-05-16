@@ -1,7 +1,6 @@
 {
   "variants": {
-    "": {
-      "model": "redwoodvariants:block/redwood_portal"
-    }
+    "axis=z": { "model": "redwoodvariants:block/redwood_portal_ew" },
+    "axis=x": { "model": "redwoodvariants:block/redwood_portal_ns" }
   }
 }

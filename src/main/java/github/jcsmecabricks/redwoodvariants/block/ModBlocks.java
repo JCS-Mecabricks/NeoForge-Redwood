@@ -33,6 +33,7 @@ public class ModBlocks {
                     .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "redwood_portal")))
                     .noCollission()
+                    .noLootTable()
                     .strength(10f, 50.0f)
                     .requiresCorrectToolForDrops()));
 

@@ -25,7 +25,6 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.STRIPPED_REDWOOD_LOG.get());
                         output.accept(ModBlocks.REDWOOD_LOG.get());
                         output.accept(ModBlocks.REDWOOD_LEAVES.get());
-                        output.accept(ModBlocks.REDWOOD_PORTAL.get());
                         output.accept(ModBlocks.REDWOOD_PLANKS.get());
                         output.accept(ModItems.GRIZZLY_SPAWN_EGG.get());
                         output.accept(ModItems.REDWOOD_CHEST_BOAT.get());

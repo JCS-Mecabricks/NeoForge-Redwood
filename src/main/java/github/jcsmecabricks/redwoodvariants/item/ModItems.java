@@ -5,6 +5,7 @@ import github.jcsmecabricks.redwoodvariants.block.ModBlocks;
 import github.jcsmecabricks.redwoodvariants.entity.ModEntities;
 import github.jcsmecabricks.redwoodvariants.item.custom.ModBoatItem;
 import github.jcsmecabricks.redwoodvariants.item.custom.ModChestBoatItem;
+import github.jcsmecabricks.redwoodvariants.item.custom.ResourceRealmItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -22,7 +23,7 @@ public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(RedwoodVariants.MOD_ID);
 
     public static final DeferredItem<Item> RESOURCE_REALM = ITEMS.register("resource_realm",
-            () -> new Item(new Item.Properties()
+            () -> new ResourceRealmItem(new Item.Properties()
                     .setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "resource_realm")))));
 
@@ -31,6 +32,7 @@ public class ModItems {
                     new Item.Properties().stacksTo(16)
                             .setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath
                                     (RedwoodVariants.MOD_ID, "redwood_sign")))));
+
     public static final DeferredItem<Item> REDWOOD_HANGING_SIGN = ITEMS.register("redwood_hanging_sign",
             () -> new HangingSignItem(ModBlocks.REDWOOD_HANGING_SIGN.get(), ModBlocks.REDWOOD_WALL_HANGING_SIGN.get(),
                     new Item.Properties().stacksTo(16)

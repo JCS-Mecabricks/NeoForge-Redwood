@@ -6,6 +6,9 @@ import github.jcsmecabricks.redwoodvariants.entity.client.GrizzlyBearModel;
 import github.jcsmecabricks.redwoodvariants.entity.client.ModModelLayers;
 import github.jcsmecabricks.redwoodvariants.entity.custom.GrizzlyBearEntity;
 import net.minecraft.client.model.BoatModel;
+import net.minecraft.world.entity.SpawnPlacementTypes;
+import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
@@ -28,6 +31,7 @@ public class ModEventBusEvents {
 
     @SubscribeEvent
     public static void registerSpawnPlacements(RegisterSpawnPlacementsEvent event) {
-
+        event.register(ModEntities.GRIZZLY_BEAR.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Animal::checkAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
     }
 }
