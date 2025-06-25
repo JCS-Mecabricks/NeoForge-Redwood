@@ -19,6 +19,7 @@ import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.OptionalLong;
 
 public class ModDimensions {
@@ -45,6 +46,7 @@ public class ModDimensions {
                 BlockTags.INFINIBURN_OVERWORLD, // infiniburn
                 BuiltinDimensionTypes.OVERWORLD_EFFECTS, // effectsLocation
                 1.0f, // ambientLight
+                Optional.of(128), // Cloud Height
                 new DimensionType.MonsterSettings(false, false, ConstantInt.of(0), 0)));
     }
 

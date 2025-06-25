@@ -3,6 +3,7 @@ package github.jcsmecabricks.redwoodvariants.entity.client;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import github.jcsmecabricks.redwoodvariants.RedwoodVariants;
+import net.minecraft.client.animation.KeyframeAnimation;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -13,6 +14,12 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 
 public class GrizzlyBearModel extends EntityModel<GrizzlyBearRenderState> {
+    private final KeyframeAnimation walkAnimation;
+    private final KeyframeAnimation sitAnimation;
+    private final KeyframeAnimation sitTransitionAnimation;
+    private final KeyframeAnimation standupAnimation;
+    private final KeyframeAnimation idleAnimation;
+    private final KeyframeAnimation attackAnimation;
     public static final ModelLayerLocation GRIZZLY_BEAR = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(RedwoodVariants.MOD_ID, "grizzly_bear"), "main");
     private final ModelPart root;
     private final ModelPart grizzly_bear;
@@ -29,6 +36,12 @@ public class GrizzlyBearModel extends EntityModel<GrizzlyBearRenderState> {
 
     public GrizzlyBearModel(ModelPart root) {
         super(root);
+        this.walkAnimation = GrizzlyBearAnimations.WALK.bake(root);
+        this.sitAnimation = GrizzlyBearAnimations.SIT.bake(root);
+        this.sitTransitionAnimation = GrizzlyBearAnimations.SIT_TRANSITION.bake(root);
+        this.standupAnimation = GrizzlyBearAnimations.STAND.bake(root);
+        this.idleAnimation = GrizzlyBearAnimations.IDLE.bake(root);
+        this.attackAnimation = GrizzlyBearAnimations.ATTACK.bake(root);
         this.root = root.getChild("root");
         this.grizzly_bear = this.root.getChild("grizzly_bear");
         this.body = this.grizzly_bear.getChild("body");
@@ -84,12 +97,12 @@ public class GrizzlyBearModel extends EntityModel<GrizzlyBearRenderState> {
     public void setupAnim(GrizzlyBearRenderState renderState) {
         this.root().getAllParts().forEach(ModelPart::resetPose);
         this.applyHeadRotation(renderState, renderState.yRot, renderState.xRot);
-        this.animateWalk(GrizzlyBearAnimations.WALK, renderState.walkAnimationPos, renderState.walkAnimationSpeed, 2f, 2.5f);
-        this.animate(renderState.idleAnimationState, GrizzlyBearAnimations.IDLE, renderState.ageInTicks, 1f);
-        this.animate(renderState.sittingAnimationState, GrizzlyBearAnimations.SIT, renderState.ageInTicks, 1f);
-        this.animate(renderState.standingAnimationState, GrizzlyBearAnimations.STAND, renderState.ageInTicks, 1f);
-        this.animate(renderState.sittingTransitionAnimationState, GrizzlyBearAnimations.SIT_TRANSITION, renderState.ageInTicks, 1f);
-        this.animate(renderState.attackingAnimationState, GrizzlyBearAnimations.ATTACK, renderState.ageInTicks, 1f);
+        this.walkAnimation.applyWalk(renderState.walkAnimationPos, renderState.walkAnimationSpeed, 2f, 2.5f);
+        this.idleAnimation.apply(renderState.idleAnimationState, renderState.ageInTicks, 1f);
+        this.sitAnimation.apply(renderState.sittingAnimationState, renderState.ageInTicks, 1f);
+        this.standupAnimation.apply(renderState.standingAnimationState, renderState.ageInTicks, 1f);
+        this.sitTransitionAnimation.apply(renderState.sittingTransitionAnimationState, renderState.ageInTicks, 1f);
+        this.attackAnimation.apply(renderState.attackingAnimationState, renderState.ageInTicks, 1f);
     }
 
     private void applyHeadRotation(GrizzlyBearRenderState renderState, float headYaw, float headPitch) {
