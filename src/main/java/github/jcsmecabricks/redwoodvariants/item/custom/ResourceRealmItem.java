@@ -21,7 +21,7 @@ public class ResourceRealmItem extends Item {
         Level level = context.getLevel();
         BlockPos pos = context.getClickedPos();
 
-        if (!level.isClientSide && context.getPlayer() != null) {
+        if (!level.isClientSide() && context.getPlayer() != null) {
             if (level.dimension().equals(ModDimensions.REDWOODDIM_LEVEL_KEY) || level.dimension().equals(Level.OVERWORLD)) {
                 ModPortalBlock portalBlock = (ModPortalBlock) ModBlocks.REDWOOD_PORTAL.get();
                 BlockPos[] frameChecks = {

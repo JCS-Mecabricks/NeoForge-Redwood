@@ -60,7 +60,7 @@ public class ModBoatItem extends Item {
                     if (!p_40622_.noCollision(modBoatEntity, modBoatEntity.getBoundingBox())) {
                         return InteractionResult.FAIL;
                     } else {
-                        if (!p_40622_.isClientSide) {
+                        if (!p_40622_.isClientSide()) {
                             p_40622_.addFreshEntity(modBoatEntity);
                             p_40622_.gameEvent(p_40623_, GameEvent.ENTITY_PLACE, hitresult.getLocation());
                             itemstack.consume(1, p_40623_);

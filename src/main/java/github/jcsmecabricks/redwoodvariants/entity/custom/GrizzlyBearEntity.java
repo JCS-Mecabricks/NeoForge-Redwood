@@ -113,7 +113,7 @@ public class GrizzlyBearEntity extends TamableAnimal implements NeutralMob{
             } else {
                             return interactionresult;
             }
-        } else if (!this.level().isClientSide && itemstack.is(Items.HONEY_BOTTLE) && !this.isAngry()) {
+        } else if (!this.level().isClientSide() && itemstack.is(Items.HONEY_BOTTLE) && !this.isAngry()) {
             itemstack.consume(1, p_406380_);
             this.tryToTame(p_406380_);
             return InteractionResult.SUCCESS_SERVER;

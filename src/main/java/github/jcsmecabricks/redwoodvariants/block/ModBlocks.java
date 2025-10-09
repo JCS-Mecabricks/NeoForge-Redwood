@@ -32,7 +32,7 @@ public class ModBlocks {
             () -> new ModPortalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_PORTAL)
                     .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "redwood_portal")))
-                    .noCollission()
+                    .noCollision()
                     .noLootTable()
                     .strength(10f, 50.0f)
                     .requiresCorrectToolForDrops()));
