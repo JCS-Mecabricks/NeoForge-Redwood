@@ -8,14 +8,10 @@ import github.jcsmecabricks.redwoodvariants.item.ModItems;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.vehicle.Boat;
-import net.minecraft.world.entity.vehicle.ChestBoat;
-import net.minecraft.world.entity.vehicle.Minecart;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -27,7 +23,7 @@ public class ModEntities {
 
     public static final Supplier<EntityType<GrizzlyBearEntity>> GRIZZLY_BEAR =
             ENTITY_TYPES.register("grizzly_bear", () -> EntityType.Builder.of(GrizzlyBearEntity::new, MobCategory.CREATURE)
-                    .sized(1.6f, 1.6f).build(ResourceKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath
+                    .sized(1.6f, 1.6f).build(ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "grizzly_bear"))));
 
     public static final Supplier<EntityType<ModBoatEntity>> REDWOOD_BOAT =
@@ -37,7 +33,7 @@ public class ModEntities {
                     .eyeHeight(0.5625F)
                     .clientTrackingRange(10)
                     .build(ResourceKey.create(Registries.ENTITY_TYPE,
-                            ResourceLocation.fromNamespaceAndPath
+                            Identifier.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "redwood_boat"))));
 
     public static final Supplier<EntityType<ModChestBoatEntity>> REDWOOD_CHEST_BOAT =
@@ -47,7 +43,7 @@ public class ModEntities {
                     .eyeHeight(0.5625F)
                     .clientTrackingRange(10)
                     .build(ResourceKey.create(Registries.ENTITY_TYPE,
-                            ResourceLocation.fromNamespaceAndPath
+                            Identifier.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "redwood_chest_boat"))));
 
     private static EntityType.EntityFactory<ModBoatEntity> boatFactory(Supplier<Item> boatItemGetter) {

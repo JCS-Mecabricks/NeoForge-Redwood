@@ -1,7 +1,7 @@
 package github.jcsmecabricks.redwoodvariants.entity.custom;
 
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.vehicle.ChestBoat;
+import net.minecraft.world.entity.vehicle.boat.ChestBoat;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 

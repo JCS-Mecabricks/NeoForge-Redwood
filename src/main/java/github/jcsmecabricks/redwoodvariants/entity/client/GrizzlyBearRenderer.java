@@ -5,7 +5,7 @@ import github.jcsmecabricks.redwoodvariants.RedwoodVariants;
 import github.jcsmecabricks.redwoodvariants.entity.custom.GrizzlyBearEntity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class GrizzlyBearRenderer extends MobRenderer<GrizzlyBearEntity, GrizzlyBearRenderState, GrizzlyBearModel> {
     public GrizzlyBearRenderer(EntityRendererProvider.Context pContext) {
@@ -13,8 +13,8 @@ public class GrizzlyBearRenderer extends MobRenderer<GrizzlyBearEntity, GrizzlyB
     }
 
     @Override
-    public ResourceLocation getTextureLocation(GrizzlyBearRenderState grizzlyBearRenderState) {
-        return ResourceLocation.fromNamespaceAndPath(RedwoodVariants.MOD_ID, "textures/entity/grizzly/grizzly_bear.png");
+    public Identifier getTextureLocation(GrizzlyBearRenderState grizzlyBearRenderState) {
+        return Identifier.fromNamespaceAndPath(RedwoodVariants.MOD_ID, "textures/entity/grizzly/grizzly_bear.png");
     }
 
     @Override

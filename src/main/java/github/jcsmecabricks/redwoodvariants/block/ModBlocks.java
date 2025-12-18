@@ -9,7 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
@@ -30,7 +30,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> REDWOOD_PORTAL = registerBlock("redwood_portal",
             () -> new ModPortalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_PORTAL)
-                    .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
+                    .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "redwood_portal")))
                     .noCollision()
                     .noLootTable()
@@ -39,7 +39,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> REDWOOD_PLANKS = registerBlock("redwood_planks",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PALE_OAK_PLANKS)
-                    .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
+                    .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "redwood_planks")))){
                 @Override
                 public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
@@ -59,62 +59,62 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> REDWOOD_LOG = registerBlock("redwood_log",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)
-                    .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
+                    .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "redwood_log")))));
     public static final DeferredBlock<Block> REDWOOD_WOOD = registerBlock("redwood_wood",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
-                    .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
+                    .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "redwood_wood")))));
     public static final DeferredBlock<Block> STRIPPED_REDWOOD_LOG = registerBlock("stripped_redwood_log",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_DARK_OAK_LOG)
-                    .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
+                    .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "stripped_redwood_log")))));
     public static final DeferredBlock<Block> STRIPPED_REDWOOD_WOOD = registerBlock("stripped_redwood_wood",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_DARK_OAK_WOOD)
-                    .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
+                    .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "stripped_redwood_wood")))));
 
     public static final DeferredBlock<StairBlock> REDWOOD_STAIRS = registerBlock("redwood_stairs",
             () -> new StairBlock(ModBlocks.REDWOOD_PLANKS.get().defaultBlockState(),
                     BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_STAIRS)
-                            .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
+                            .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath
                                     (RedwoodVariants.MOD_ID, "redwood_stairs")))));
     public static final DeferredBlock<SlabBlock> REDWOOD_SLAB = registerBlock("redwood_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_SLAB)
-                            .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
+                            .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath
                                     (RedwoodVariants.MOD_ID, "redwood_slab")))));
     public static final DeferredBlock<PressurePlateBlock> REDWOOD_PRESSURE_PLATE = registerBlock("redwood_pressure_plate",
             () -> new PressurePlateBlock(BlockSetType.OAK,
                     BlockBehaviour.Properties.ofFullCopy(Blocks.PALE_OAK_PRESSURE_PLATE)
-                            .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
+                            .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath
                                     (RedwoodVariants.MOD_ID, "redwood_pressure_plate")))));
     public static final DeferredBlock<ButtonBlock> REDWOOD_BUTTON = registerBlock("redwood_button",
             () -> new ButtonBlock(BlockSetType.OAK,
                     20,
                     BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_BUTTON)
-                            .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
+                            .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath
                                     (RedwoodVariants.MOD_ID, "redwood_button")))));
 
     public static final DeferredBlock<FenceBlock> REDWOOD_FENCE = registerBlock("redwood_fence",
             () -> new FenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_FENCE)
-                    .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
+                    .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "redwood_fence")))));
     public static final DeferredBlock<FenceGateBlock> REDWOOD_FENCE_GATE = registerBlock("redwood_fence_gate",
             () -> new FenceGateBlock(WoodType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_FENCE_GATE)
-                    .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
+                    .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "redwood_fence_gate")))));
 
     public static final DeferredBlock<DoorBlock> REDWOOD_DOOR = registerBlock("redwood_door",
             () -> new DoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_DOOR)
-                    .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
+                    .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath
                     (RedwoodVariants.MOD_ID, "redwood_door")))));
     public static final DeferredBlock<TrapDoorBlock> REDWOOD_TRAPDOOR = registerBlock("redwood_trapdoor",
-            () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_TRAPDOOR)                    .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
+            () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_TRAPDOOR)                    .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath
                     (RedwoodVariants.MOD_ID, "redwood_trapdoor")))));
 
     public static final DeferredBlock<Block> REDWOOD_LEAVES = registerBlock("redwood_leaves",
             () -> new TintedParticleLeavesBlock(0, BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES)
-                    .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
+                    .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "redwood_leaves")))){
                 @Override
                 public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
@@ -133,25 +133,25 @@ public class ModBlocks {
             });
     public static final DeferredBlock<Block> REDWOOD_SAPLING = registerBlock("redwood_sapling",
             () -> new SaplingBlock(ModTreeGrowers.REDWOOD,BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)
-                    .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
+                    .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "redwood_sapling")))));
 
     public static final DeferredBlock<Block> REDWOOD_SIGN = BLOCKS.register("redwood_sign",
             () -> new ModStandingSignBlock(ModWoodTypes.REDWOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN)
-                    .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
+                    .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "redwood_sign")))));
     public static final DeferredBlock<Block> REDWOOD_WALL_SIGN = BLOCKS.register("redwood_wall_sign",
             () -> new ModWallSignBlock(ModWoodTypes.REDWOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN)
-                    .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
+                    .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "redwood_wall_sign")))));
 
     public static final DeferredBlock<Block> REDWOOD_HANGING_SIGN = BLOCKS.register("redwood_hanging_sign",
             () -> new ModHangingSignBlock(ModWoodTypes.REDWOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN)
-                    .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
+                    .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "redwood_hanging_sign")))));
     public static final DeferredBlock<Block> REDWOOD_WALL_HANGING_SIGN = BLOCKS.register("redwood_wall_hanging_sign",
             () -> new ModWallHangingSignBlock(ModWoodTypes.REDWOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN)
-                    .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath
+                    .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "redwood_wall_hanging_sign")))));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
@@ -162,7 +162,7 @@ public class ModBlocks {
 
     private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().useBlockDescriptionPrefix()
-                .setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(RedwoodVariants.MOD_ID, name)))));
+                .setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(RedwoodVariants.MOD_ID, name)))));
     }
 
     public static void register(IEventBus eventBus) {

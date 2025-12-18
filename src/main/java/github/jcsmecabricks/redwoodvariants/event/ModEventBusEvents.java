@@ -5,18 +5,23 @@ import github.jcsmecabricks.redwoodvariants.entity.ModEntities;
 import github.jcsmecabricks.redwoodvariants.entity.client.GrizzlyBearModel;
 import github.jcsmecabricks.redwoodvariants.entity.client.ModModelLayers;
 import github.jcsmecabricks.redwoodvariants.entity.custom.GrizzlyBearEntity;
-import net.minecraft.client.model.BoatModel;
+import github.jcsmecabricks.redwoodvariants.worldgen.dimension.ModDimensions;
+import net.minecraft.client.model.object.boat.BoatModel;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
+import net.neoforged.neoforge.event.level.LevelEvent;
 
 @EventBusSubscriber(modid = RedwoodVariants.MOD_ID)
 public class ModEventBusEvents {
+
     @SubscribeEvent
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(GrizzlyBearModel.GRIZZLY_BEAR, GrizzlyBearModel::createBodyLayer);

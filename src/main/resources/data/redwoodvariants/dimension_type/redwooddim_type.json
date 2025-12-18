@@ -1,12 +1,14 @@
 {
-  "ambient_light": 1.0,
-  "bed_works": true,
+  "ambient_light": 0.0,
+  "attributes": {
+    "minecraft:visual/fog_color": "#c0d8ff",
+    "minecraft:visual/sky_color": "#78a7ff",
+    "minecraft:visual/water_fog_color": "#3f76e4"
+  },
   "coordinate_scale": 1.0,
-  "effects": "minecraft:overworld",
-  "fixed_time": 12000,
   "has_ceiling": false,
-  "has_raids": false,
-  "has_skylight": false,
+  "has_fixed_time": false,
+  "has_skylight": true,
   "height": 256,
   "infiniburn": "#minecraft:infiniburn_overworld",
   "logical_height": 256,
@@ -14,11 +16,7 @@
   "monster_spawn_block_light_limit": 0,
   "monster_spawn_light_level": {
     "type": "minecraft:uniform",
-    "max_inclusive": 0,
-    "min_inclusive": 0
-  },
-  "natural": true,
-  "piglin_safe": false,
-  "respawn_anchor_works": false,
-  "ultrawarm": false
+    "max_inclusive": 15,
+    "min_inclusive": 15
+  }
 }

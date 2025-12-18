@@ -2,25 +2,18 @@ package github.jcsmecabricks.redwoodvariants.worldgen.dimension;
 
 import github.jcsmecabricks.redwoodvariants.block.ModBlocks;
 import github.jcsmecabricks.redwoodvariants.block.custom.ModPortalBlock;
-import github.jcsmecabricks.redwoodvariants.util.ModPoiTypes;
-import net.minecraft.BlockUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.BlockUtil;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.ai.village.poi.PoiManager;
-import net.minecraft.world.entity.ai.village.poi.PoiRecord;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.border.WorldBorder;
 import net.minecraft.world.level.levelgen.Heightmap;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Comparator;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 public class ModTeleporter {
     public static final int TICKET_RADIUS = 3;

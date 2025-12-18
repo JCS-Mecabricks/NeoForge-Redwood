@@ -9,7 +9,7 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 
@@ -20,7 +20,7 @@ public class GrizzlyBearModel extends EntityModel<GrizzlyBearRenderState> {
     private final KeyframeAnimation standupAnimation;
     private final KeyframeAnimation idleAnimation;
     private final KeyframeAnimation attackAnimation;
-    public static final ModelLayerLocation GRIZZLY_BEAR = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(RedwoodVariants.MOD_ID, "grizzly_bear"), "main");
+    public static final ModelLayerLocation GRIZZLY_BEAR = new ModelLayerLocation(Identifier.fromNamespaceAndPath(RedwoodVariants.MOD_ID, "grizzly_bear"), "main");
     private final ModelPart root;
     private final ModelPart grizzly_bear;
     private final ModelPart body;

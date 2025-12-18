@@ -4,14 +4,12 @@ import com.mojang.serialization.Codec;
 import github.jcsmecabricks.redwoodvariants.entity.ModEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -37,9 +35,7 @@ import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.event.EventHooks;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.UUID;
-
-public class GrizzlyBearEntity extends TamableAnimal implements NeutralMob{
+public class GrizzlyBearEntity extends TamableAnimal implements NeutralMob {
     private int warningSoundTicks;
     public final AnimationState sittingTransitionAnimationState = new AnimationState();
     public final AnimationState sitingAnimtaionState = new AnimationState();
@@ -235,22 +231,22 @@ public class GrizzlyBearEntity extends TamableAnimal implements NeutralMob{
     }
 
     @Override
-    public int getRemainingPersistentAngerTime() {
+    public long getPersistentAngerEndTime() {
         return 0;
     }
 
     @Override
-    public void setRemainingPersistentAngerTime(int i) {
+    public void setPersistentAngerEndTime(long l) {
 
     }
 
     @Override
-    public @Nullable UUID getPersistentAngerTarget() {
+    public @org.jspecify.annotations.Nullable EntityReference<LivingEntity> getPersistentAngerTarget() {
         return null;
     }
 
     @Override
-    public void setPersistentAngerTarget(@Nullable UUID uuid) {
+    public void setPersistentAngerTarget(@org.jspecify.annotations.Nullable EntityReference<LivingEntity> entityReference) {
 
     }
 

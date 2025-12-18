@@ -4,7 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.mojang.serialization.MapCodec;
 import github.jcsmecabricks.redwoodvariants.worldgen.dimension.ModDimensions;
 import github.jcsmecabricks.redwoodvariants.worldgen.dimension.ModTeleporter;
-import net.minecraft.BlockUtil;
+import net.minecraft.util.BlockUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceKey;
@@ -12,6 +12,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.attribute.EnvironmentAttributes;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -25,6 +26,7 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.border.WorldBorder;
 import net.minecraft.world.level.dimension.DimensionType;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.portal.PortalShape;
 import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.phys.Vec3;
@@ -57,12 +59,8 @@ public class ModPortalBlock extends Block implements Portal {
         return SHAPES.get(state.getValue(AXIS));
     }
 
-    protected VoxelShape getEntityInsideCollisionShape(BlockState p_400288_, BlockGetter p_400305_, BlockPos p_400030_, Entity p_399514_) {
-        return p_400288_.getShape(p_400305_, p_400030_);
-    }
-
     protected void randomTick(BlockState p_221799_, ServerLevel p_221800_, BlockPos p_221801_, RandomSource p_221802_) {
-        if (p_221800_.dimensionType().natural() && p_221800_.getGameRules().getBoolean(GameRules.RULE_DOMOBSPAWNING) && p_221802_.nextInt(2000) < p_221800_.getDifficulty().getId() && p_221800_.anyPlayerCloseEnoughForSpawning(p_221801_)) {
+        if (p_221800_.isSpawningMonsters() && p_221800_.environmentAttributes().getValue(EnvironmentAttributes.NETHER_PORTAL_SPAWNS_PIGLINS, p_221801_) && p_221802_.nextInt(2000) < p_221800_.getDifficulty().getId() && p_221800_.anyPlayerCloseEnoughForSpawning(p_221801_)) {
             while(p_221800_.getBlockState(p_221801_).is(this)) {
                 p_221801_ = p_221801_.below();
             }
@@ -88,9 +86,9 @@ public class ModPortalBlock extends Block implements Portal {
         return !flag && !p_54930_.is(this) && !PortalShape.findAnyShape(p_374413_, p_54932_, direction$axis1).isComplete() ? Blocks.AIR.defaultBlockState() : super.updateShape(p_54928_, p_374413_, p_374339_, p_54932_, p_54929_, p_54933_, p_54930_, p_374242_);
     }
 
-    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier p_405383_) {
-        if (entity.canUsePortal(false)) {
-            entity.setAsInsidePortal(this, pos);
+    protected void entityInside(BlockState p_54915_, Level p_54916_, BlockPos p_54917_, Entity p_54918_, InsideBlockEffectApplier p_405383_, boolean p_451762_) {
+        if (p_54918_.canUsePortal(false)) {
+            p_54918_.setAsInsidePortal(this, p_54917_);
         }
 
     }
@@ -98,7 +96,7 @@ public class ModPortalBlock extends Block implements Portal {
     public int getPortalTransitionTime(ServerLevel p_350689_, Entity p_350280_) {
         int var10000;
         if (p_350280_ instanceof Player player) {
-            var10000 = Math.max(0, p_350689_.getGameRules().getInt(player.getAbilities().invulnerable ? GameRules.RULE_PLAYERS_NETHER_PORTAL_CREATIVE_DELAY : GameRules.RULE_PLAYERS_NETHER_PORTAL_DEFAULT_DELAY));
+            var10000 = Math.max(0, p_350689_.getGameRules().get(player.getAbilities().invulnerable ? GameRules.PLAYERS_NETHER_PORTAL_CREATIVE_DELAY : GameRules.PLAYERS_NETHER_PORTAL_DEFAULT_DELAY));
         } else {
             var10000 = 0;
         }
