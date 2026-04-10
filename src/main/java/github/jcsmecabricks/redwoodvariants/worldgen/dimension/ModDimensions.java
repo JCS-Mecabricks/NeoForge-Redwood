@@ -14,6 +14,7 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.attribute.EnvironmentAttributeMap;
 import net.minecraft.world.attribute.EnvironmentAttributes;
+import net.minecraft.world.level.CardinalLighting;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
@@ -54,6 +55,7 @@ public class ModDimensions {
                 false,   // fixed time
                 true,// hasSkyLight
                 false,
+                false,
                 1.0,
                 -64,
                 256,
@@ -67,9 +69,10 @@ public class ModDimensions {
                 ),
 
                 DimensionType.Skybox.OVERWORLD,
-                DimensionType.CardinalLightType.DEFAULT,
+                CardinalLighting.Type.DEFAULT,
                 attributes,
-                overworldTimelines // ✅ THIS replaces RegistryEntryList.empty()
+                HolderSet.empty(),
+                Optional.empty() // ✅ THIS replaces RegistryEntryList.empty()
         ));
     }
 
