@@ -84,7 +84,7 @@ public class ModChestBoatItem extends Item {
             modChestBoatEntity.setInitialPos(vec3.x, vec3.y, vec3.z);
             if (level instanceof ServerLevel) {
                 ServerLevel serverlevel = (ServerLevel)level;
-                EntityType.createDefaultStackConfig(serverlevel, stack, player).accept(modChestBoatEntity);
+                EntityType.createDefaultStackConfig(serverlevel, stack, player).apply(modChestBoatEntity);
             }
         }
 

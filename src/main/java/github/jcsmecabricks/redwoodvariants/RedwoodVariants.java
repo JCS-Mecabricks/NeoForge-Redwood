@@ -56,7 +56,7 @@ public class RedwoodVariants
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules::makeRules);
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
@@ -74,7 +74,6 @@ public class RedwoodVariants
             EntityRenderers.register(ModEntities.GRIZZLY_BEAR.get(), GrizzlyBearRenderer::new);
             EntityRenderers.register(ModEntities.REDWOOD_BOAT.get(), context -> new ModBoatRenderer(context, ModModelLayers.REDWOOD_BOAT));
             EntityRenderers.register(ModEntities.REDWOOD_CHEST_BOAT.get(), context -> new ModBoatRenderer(context, ModModelLayers.REDWOOD_CHEST_BOAT));
-            Sheets.addWoodType(ModWoodTypes.REDWOOD);
         }
     }
 }

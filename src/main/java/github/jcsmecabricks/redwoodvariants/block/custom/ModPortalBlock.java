@@ -65,8 +65,8 @@ public class ModPortalBlock extends Block implements Portal {
                 p_221801_ = p_221801_.below();
             }
 
-            if (p_221800_.getBlockState(p_221801_).isValidSpawn(p_221800_, p_221801_, EntityType.ZOMBIFIED_PIGLIN)) {
-                Entity entity = EntityType.ZOMBIFIED_PIGLIN.spawn(p_221800_, p_221801_.above(), EntitySpawnReason.STRUCTURE);
+            if (p_221800_.getBlockState(p_221801_).isValidSpawn(p_221800_, p_221801_, EntityTypes.ZOMBIFIED_PIGLIN)) {
+                Entity entity = EntityTypes.ZOMBIFIED_PIGLIN.spawn(p_221800_, p_221801_.above(), EntitySpawnReason.STRUCTURE);
                 if (entity != null) {
                     entity.setPortalCooldown();
                     Entity entity1 = entity.getVehicle();

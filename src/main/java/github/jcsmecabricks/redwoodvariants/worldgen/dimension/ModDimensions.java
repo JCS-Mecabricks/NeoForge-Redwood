@@ -17,6 +17,7 @@ import net.minecraft.world.attribute.EnvironmentAttributes;
 import net.minecraft.world.level.CardinalLighting;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.*;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.dimension.LevelStem;
@@ -51,6 +52,11 @@ public class ModDimensions {
                         .value()
                         .timelines();
 
+        HolderSet<Block> infiniburn =
+                context.lookup(Registries.BLOCK)
+                        .getOrThrow(BlockTags.INFINIBURN_OVERWORLD);
+
+
         context.register(REDWOOD_DIM_TYPE, new DimensionType(
                 false,   // fixed time
                 true,// hasSkyLight
@@ -60,7 +66,7 @@ public class ModDimensions {
                 -64,
                 256,
                 256,
-                BlockTags.INFINIBURN_OVERWORLD,
+                infiniburn,
                 0.0f,
 
                 new DimensionType.MonsterSettings(
