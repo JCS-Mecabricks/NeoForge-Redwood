@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "redwoodvariants:resource_realm"
+        "recipes": "redwoodvariants:resource_realm"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

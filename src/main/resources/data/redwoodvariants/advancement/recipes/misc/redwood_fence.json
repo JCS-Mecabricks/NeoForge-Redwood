@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "redwoodvariants:redwood_fence"
+        "recipes": "redwoodvariants:redwood_fence"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

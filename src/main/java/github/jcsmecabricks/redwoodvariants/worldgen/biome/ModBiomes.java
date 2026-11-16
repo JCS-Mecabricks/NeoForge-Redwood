@@ -5,35 +5,29 @@ import github.jcsmecabricks.redwoodvariants.worldgen.ModPlacedFeatures;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.ARGB;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.attribute.BackgroundMusic;
 import net.minecraft.world.attribute.EnvironmentAttributes;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityTypes;
-import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
-
-import static net.minecraft.data.worldgen.biome.OverworldBiomes.calculateSkyColor;
+import terrablender.api.Regions;
 
 public class ModBiomes {
+    public static boolean redwood;
     public static final ResourceKey<Biome> REDWOOD_BIOME = ResourceKey.create(Registries.BIOME,
             Identifier.fromNamespaceAndPath(RedwoodVariants.MOD_ID, "redwood_biome"));
 
-    public static void boostrap(BootstrapContext<Biome> context) {
-        context.register(REDWOOD_BIOME, redwoodBiome(context));
+    public static void bootstrap(BootstrapContext<Biome> context) {
+        context.register(REDWOOD_BIOME, redwoodBiome(context, redwood));
     }
 
-    private static Biome.BiomeBuilder baseBiome(float p_457942_, float p_458031_) {
-        return new Biome.BiomeBuilder()
-                .hasPrecipitation(true)
-                .temperature(p_457942_)
-                .downfall(p_458031_)
-                .setAttribute(EnvironmentAttributes.SKY_COLOR, calculateSkyColor(p_457942_))
-                .specialEffects(new BiomeSpecialEffects.Builder().waterColor(4159204).build());
+    public static void registerBiomes() {
+        Regions.register(new ModOverworldRegion(Identifier.fromNamespaceAndPath(RedwoodVariants.MOD_ID, "redwood_biome"), 20));
     }
 
     public static void globalOverworldGeneration(BiomeGenerationSettings.Builder builder) {
@@ -44,45 +38,49 @@ public class ModBiomes {
         BiomeDefaultFeatures.addSurfaceFreezing(builder);
     }
 
-    public static Biome redwoodBiome(BootstrapContext<Biome> context) {
+    public static Biome redwoodBiome(BootstrapContext<Biome> context, boolean redwood) {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
 
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 5, new MobSpawnSettings.SpawnerData(EntityTypes.WOLF, 5, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 6, new MobSpawnSettings.SpawnerData(EntityTypes.FOX, 3, 5));
+        spawnBuilder.addSpawn(EntityTypes.WOLF, 5, UniformInt.of(4, 4));
+        spawnBuilder.addSpawn(EntityTypes.FOX, 20, UniformInt.of(3, 5));
+
         BiomeDefaultFeatures.farmAnimals(spawnBuilder);
-        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
 
-        BiomeGenerationSettings.Builder biomeBuilder =
-                new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));
-        globalOverworldGeneration(biomeBuilder);
-        BiomeDefaultFeatures.addMossyStoneBlock(biomeBuilder);
-        BiomeDefaultFeatures.addMeadowVegetation(biomeBuilder);
-        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
-        BiomeDefaultFeatures.addExtraGold(biomeBuilder);
+        BiomeGenerationSettings.Builder genBuilder =
+                new BiomeGenerationSettings.Builder(
+                        context.lookup(Registries.PLACED_FEATURE),
+                        context.lookup(Registries.CARVER)
+                );
 
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.REDWOOD_PLACED_KEY);
-        BiomeDefaultFeatures.addDefaultExtraVegetation(biomeBuilder, true);
+        globalOverworldGeneration(genBuilder);
+        BiomeDefaultFeatures.addDefaultOres(genBuilder);
+        BiomeDefaultFeatures.addMossyStoneBlock(genBuilder);
 
-        return baseBiome(0.4F, 0.7F)
-                .setAttribute(
-                        EnvironmentAttributes.SKY_COLOR,
-                        calculateSkyColor(0.4F)
-                )
-                .setAttribute(
-                        EnvironmentAttributes.WATER_FOG_COLOR,
-                        12638463
-                )
-                .setAttribute(
-                        EnvironmentAttributes.BACKGROUND_MUSIC,
-                        new BackgroundMusic(SoundEvents.AMBIENT_WARPED_FOREST_MOOD)
-                )
+        genBuilder.addFeature(
+                GenerationStep.Decoration.VEGETAL_DECORATION,
+                ModPlacedFeatures.REDWOOD_PLACED_KEY
+        );
+
+        BiomeDefaultFeatures.addFerns(genBuilder);
+        BiomeDefaultFeatures.addForestFlowers(genBuilder);
+        BiomeDefaultFeatures.addDefaultExtraVegetation(genBuilder, true);
+
+        return new Biome.BiomeBuilder()
+                .hasPrecipitation(false).temperature(1F).downfall(0.7F)
                 .specialEffects(new BiomeSpecialEffects.Builder()
                         .waterColor(4159204)
                         .grassColorOverride(9470285)
                         .foliageColorOverride(16262185)
                         .build())
-                .mobSpawnSettings(spawnBuilder.build())
-                .generationSettings(biomeBuilder.build())
+                .mobSpawnSettings(spawnBuilder.build()).generationSettings(genBuilder.build())
+                .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(12638463))
+                .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.AMBIENT_WARPED_FOREST_MOOD))
+                // ✅ VISUAL ENVIRONMENT
+                .setAttribute(
+                        EnvironmentAttributes.SKY_COLOR,
+                        ARGB.vector3fFromRGB24(0x78A7FF)
+                )
+                .generationSettings(genBuilder.build())
                 .build();
     }
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "redwoodvariants:redwood_wood"
+        "recipes": "redwoodvariants:redwood_wood"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

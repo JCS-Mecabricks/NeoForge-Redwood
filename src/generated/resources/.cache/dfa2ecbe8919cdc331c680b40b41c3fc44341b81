@@ -1,0 +1,5 @@
+// 26.3	2026-11-16T17:27:20.8892065	Registries for World (redwoodvariants[1]): [minecraft, redwoodvariants]
+6fbebc985ea983cbb169caa0656af5340fe08360 data/redwoodvariants/neoforge/biome_modifier/spawn_grizzly_bear.json
+9e059a37527e7617868e4af6684020b4b0224b52 data/redwoodvariants/worldgen/biome/redwood_biome.json
+197adfe0ba23facf439fc73bd0d8102922dc9c65 data/redwoodvariants/worldgen/feature/redwood_tree.json
+c335a66f2e0a747f3731b752e273287c65e4b2c6 data/redwoodvariants/worldgen/placed_feature/redwood_placed.json

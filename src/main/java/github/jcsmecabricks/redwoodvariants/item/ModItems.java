@@ -6,15 +6,13 @@ import github.jcsmecabricks.redwoodvariants.entity.ModEntities;
 import github.jcsmecabricks.redwoodvariants.item.custom.ModBoatItem;
 import github.jcsmecabricks.redwoodvariants.item.custom.ModChestBoatItem;
 import github.jcsmecabricks.redwoodvariants.item.custom.ResourceRealmItem;
+import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.item.HangingSignItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SignItem;
-import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.TypedEntityData;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -31,17 +29,12 @@ public class ModItems {
                     .setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath
                             (RedwoodVariants.MOD_ID, "resource_realm")))));
 
-    public static final DeferredItem<Item> REDWOOD_SIGN = ITEMS.register("redwood_sign",
-            () -> new SignItem(ModBlocks.REDWOOD_SIGN.get(), ModBlocks.REDWOOD_WALL_SIGN.get(),
-                    new Item.Properties().stacksTo(16)
-                            .setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath
-                                    (RedwoodVariants.MOD_ID, "redwood_sign")))));
+    public static final DeferredItem<Item> REDWOOD_SIGN = ITEMS.registerItem("redwood_sign",
+            properties -> new StandingAndWallBlockItem(ModBlocks.REDWOOD_SIGN.get(), ModBlocks.REDWOOD_WALL_SIGN.get(), Direction.DOWN, properties.stacksTo(1)));
 
-    public static final DeferredItem<Item> REDWOOD_HANGING_SIGN = ITEMS.register("redwood_hanging_sign",
-            () -> new HangingSignItem(ModBlocks.REDWOOD_HANGING_SIGN.get(), ModBlocks.REDWOOD_WALL_HANGING_SIGN.get(),
-                    new Item.Properties().stacksTo(16)
-                            .setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath
-                                    (RedwoodVariants.MOD_ID, "redwood_hanging_sign")))));
+    public static final DeferredItem<Item> REDWOOD_HANGING_SIGN = ITEMS.registerItem("redwood_hanging_sign",
+            properties -> new HangingSignItem(ModBlocks.REDWOOD_HANGING_SIGN.get(), ModBlocks.REDWOOD_WALL_HANGING_SIGN.get(),
+                    properties.stacksTo(16)));
 
     public static final DeferredItem<Item> GRIZZLY_SPAWN_EGG = ITEMS.register("grizzly_spawn_egg", () ->
             new SpawnEggItem(new Item.Properties()

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:wooden_hoe"
+        "recipes": "redwoodvariants:wooden_hoe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -37,7 +37,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:wooden_hoe"
+      "redwoodvariants:wooden_hoe"
     ]
   }
 }

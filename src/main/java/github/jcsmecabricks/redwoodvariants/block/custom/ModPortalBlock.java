@@ -42,13 +42,8 @@ import java.util.Set;
 
 public class ModPortalBlock extends Block implements Portal {
     private static final Logger LOGGER = LogUtils.getLogger();
-    public static final MapCodec<ModPortalBlock> CODEC = simpleCodec(ModPortalBlock::new);
     public static final EnumProperty<Direction.Axis> AXIS;
     private static final Map<Direction.Axis, VoxelShape> SHAPES;
-
-    public MapCodec<ModPortalBlock> codec() {
-        return CODEC;
-    }
 
     public ModPortalBlock(BlockBehaviour.Properties p_54909_) {
         super(p_54909_);

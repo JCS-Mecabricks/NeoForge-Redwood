@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:wooden_sword"
+        "recipes": "redwoodvariants:wooden_sword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -37,7 +37,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:wooden_sword"
+      "redwoodvariants:wooden_sword"
     ]
   }
 }

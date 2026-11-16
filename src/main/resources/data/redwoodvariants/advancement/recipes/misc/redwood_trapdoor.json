@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "redwoodvariants:redwood_trapdoor"
+        "recipes": "redwoodvariants:redwood_trapdoor"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

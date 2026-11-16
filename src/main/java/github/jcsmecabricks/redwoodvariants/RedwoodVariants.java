@@ -8,14 +8,9 @@ import github.jcsmecabricks.redwoodvariants.entity.client.ModBoatRenderer;
 import github.jcsmecabricks.redwoodvariants.entity.client.ModModelLayers;
 import github.jcsmecabricks.redwoodvariants.item.ModCreativeModeTabs;
 import github.jcsmecabricks.redwoodvariants.item.ModItems;
-import github.jcsmecabricks.redwoodvariants.util.ModWoodTypes;
-import github.jcsmecabricks.redwoodvariants.worldgen.biome.ModTerrablender;
-import github.jcsmecabricks.redwoodvariants.worldgen.biome.surface.ModSurfaceRules;
-import net.minecraft.client.model.geom.ModelLayers;
-import net.minecraft.client.renderer.Sheets;
-import net.minecraft.client.renderer.entity.BoatRenderer;
+import github.jcsmecabricks.redwoodvariants.worldgen.biome.ModBiomes;
+import github.jcsmecabricks.redwoodvariants.worldgen.biome.surface.ModMaterialRules;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.world.entity.EntityType;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -32,11 +27,10 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import terrablender.api.SurfaceRuleManager;
+import terrablender.api.MaterialRuleManager;
 
 @Mod(RedwoodVariants.MOD_ID)
-public class RedwoodVariants
-{
+public class RedwoodVariants {
     public static final String MOD_ID = "redwoodvariants";
     private static final Logger LOGGER = LogUtils.getLogger();
 
@@ -49,14 +43,17 @@ public class RedwoodVariants
         ModBlocks.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
         NeoForge.EVENT_BUS.register(this);
-        ModTerrablender.registerBiomes();
         modEventBus.addListener(this::addCreative);
 
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        modContainer.registerConfig(ModConfig.Type.SYNCED, Config.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules::makeRules);
+        event.enqueueWork(() -> {
+            ModBiomes.registerBiomes();
+
+            MaterialRuleManager.addRules(MaterialRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModMaterialRules::makeRules);
+        });
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {

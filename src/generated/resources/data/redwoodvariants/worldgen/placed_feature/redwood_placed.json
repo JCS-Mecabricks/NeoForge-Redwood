@@ -1,5 +1,5 @@
 {
-  "feature": "redwoodvariants:redwood",
+  "feature": "redwoodvariants:redwood_tree",
   "placement": [
     {
       "type": "minecraft:count",
@@ -35,12 +35,7 @@
       "type": "minecraft:block_predicate_filter",
       "predicate": {
         "type": "minecraft:would_survive",
-        "state": {
-          "Name": "redwoodvariants:redwood_sapling",
-          "Properties": {
-            "stage": "0"
-          }
-        }
+        "state": "redwoodvariants:redwood_sapling"
       }
     }
   ]

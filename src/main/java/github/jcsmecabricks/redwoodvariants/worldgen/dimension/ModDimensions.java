@@ -10,6 +10,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.ARGB;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.attribute.EnvironmentAttributeMap;
@@ -39,9 +40,9 @@ public class ModDimensions {
 
     static EnvironmentAttributeMap attributes =
             EnvironmentAttributeMap.builder()
-                    .set(EnvironmentAttributes.SKY_COLOR, 7907327)     // vanilla overworld sky
-                    .set(EnvironmentAttributes.FOG_COLOR, 12638463)
-                    .set(EnvironmentAttributes.WATER_FOG_COLOR, 4159204)
+                    .set(EnvironmentAttributes.SKY_COLOR, ARGB.vector3fFromRGB24(7907327))
+                    .set(EnvironmentAttributes.FOG_COLOR, ARGB.vector3fFromRGB24(12638463))
+                    .set(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(4159204))
                     .build();
 
     public static void bootstrapType(BootstrapContext<DimensionType> context) {

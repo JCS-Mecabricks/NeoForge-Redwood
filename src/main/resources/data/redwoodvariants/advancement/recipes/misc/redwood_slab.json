@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "redwoodvariants:redwood_slab"
+        "recipes": "redwoodvariants:redwood_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

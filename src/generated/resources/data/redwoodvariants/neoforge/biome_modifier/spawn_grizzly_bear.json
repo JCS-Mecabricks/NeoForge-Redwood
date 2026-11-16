@@ -6,8 +6,11 @@
   ],
   "spawners": {
     "type": "redwoodvariants:grizzly_bear",
-    "maxCount": 3,
-    "minCount": 2,
+    "count": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 3,
+      "min_inclusive": 2
+    },
     "weight": 25
   }
 }

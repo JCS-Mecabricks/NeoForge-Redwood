@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "redwoodvariants:redwood_boat"
+        "recipes": "redwoodvariants:redwood_boat"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

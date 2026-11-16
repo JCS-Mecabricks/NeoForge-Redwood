@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "redwoodvariants:redwood_sign"
+        "recipes": "redwoodvariants:redwood_sign"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

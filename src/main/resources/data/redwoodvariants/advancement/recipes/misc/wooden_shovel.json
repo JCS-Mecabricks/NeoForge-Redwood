@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:wooden_shovel"
+        "recipes": "redwoodvariants:wooden_shovel"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -37,7 +37,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:wooden_shovel"
+      "redwoodvariants:wooden_shovel"
     ]
   }
 }
